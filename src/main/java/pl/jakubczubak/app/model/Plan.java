@@ -1,17 +1,28 @@
 package pl.jakubczubak.app.model;
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
 public class Plan {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
-    private String created;
+    private LocalDateTime created;
     private int admin_id;
 
-    public int getId() {
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,11 +42,11 @@ public class Plan {
         this.description = description;
     }
 
-    public String getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
@@ -44,14 +55,6 @@ public class Plan {
     }
 
     public void setAdmin_id(int admin_id) {
-        this.admin_id = admin_id;
-    }
-
-    public Plan(int id, String name, String description, String created, int admin_id) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.created = created;
         this.admin_id = admin_id;
     }
 }

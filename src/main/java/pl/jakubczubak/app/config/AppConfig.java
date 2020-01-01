@@ -9,6 +9,7 @@ import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -17,7 +18,7 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories( basePackageClasses = BookRepository.class)
+@EnableJpaRepositories( basePackages = "pl.jakubczubak.app")
 @ComponentScan(basePackages = "pl.jakubczubak.app")
 public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
@@ -36,4 +37,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager tm = new JpaTransactionManager(emf);
         return tm; }
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 }
