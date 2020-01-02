@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,56 +20,32 @@
 </head>
 
 <body>
-<header class="page-header">
-    <nav class="navbar navbar-expand-lg justify-content-around">
-        <a href="/" class="navbar-brand main-logo">
-            Zaplanuj <span>Jedzonko</span>
-        </a>
-        <ul class="nav nounderline text-uppercase">
-            <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="/login">logowanie</a>
-            </li>
-            <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="/registration">rejestracja</a>
-            </li>
-            <li class="nav-item ml-4">
-                <a class="nav-link" href="/#about">o aplikacji</a>
-            </li>
-            <li class="nav-item ml-4">
-                <a class="nav-link disabled" href="recipes.html">Przepisy</a>
-            </li>
-            <li class="nav-item ml-4">
-                <a class="nav-link disabled" href="/#contact">Kontakt</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<%@ include file="header.jsp" %>
 
 <section class="dashboard-section">
     <div class="container pt-4 pb-4">
         <div class="border-dashed view-height">
             <div class="container w-25">
-                <!-- fix action, method -->
-                <!-- add name attribute for all inputs -->
-                <form class="padding-small text-center">
+
+                <form:form method="post" action="/registration" modelAttribute="admin" class="padding-small text-center">
                     <h1 class="text-color-darker">Rejestracja</h1>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="podaj imię">
+                        <form:input path="firstName" type="text" class="form-control" id="name" name="name" placeholder="podaj imię"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="surname" name="surname" placeholder="podaj nazwisko">
+                        <form:input path="lastName" type="text" class="form-control" id="surname" name="surname" placeholder="podaj nazwisko"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="podaj email">
+                        <form:input path="email" type="text" class="form-control" id="email" name="email" placeholder="podaj email"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="password" name="password" placeholder="podaj hasło">
+                        <form:input path="password" type="text" class="form-control" id="password" name="password" placeholder="podaj hasło"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="repassword" name="password" placeholder="powtórz hasło">
+                        <form:input path="repassword" type="text" class="form-control" id="repassword" name="repassword" placeholder="powtórz hasło"/>
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zarejestruj</button>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>

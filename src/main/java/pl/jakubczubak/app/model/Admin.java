@@ -1,9 +1,7 @@
 package pl.jakubczubak.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Admin {
@@ -14,7 +12,31 @@ public class Admin {
     private String lastName;
     private String email;
     private String password;
-    private int superAdmin;
+    private String repassword;
+    @ManyToMany(cascade = CascadeType.REMOVE)
+    @JoinTable(name = "admin_role", joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> role;
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", repassword='" + repassword + '\'' +
+                ", role=" + role +
+                '}';
+    }
+
+    public String getRepassword() {
+        return repassword;
+    }
+
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
+    }
 
     public Long getId() {
         return id;
@@ -56,11 +78,11 @@ public class Admin {
         this.password = password;
     }
 
-    public int getSuperAdmin() {
-        return superAdmin;
+    public Set<Role> getRole() {
+        return role;
     }
 
-    public void setSuperAdmin(int superAdmin) {
-        this.superAdmin = superAdmin;
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 }
