@@ -23,6 +23,7 @@
     <div class="container pt-4 pb-4">
         <div class="border-dashed view-height">
             <div class="container w-25">
+
                 <form method="post" action="/login" class="padding-small text-center">
                     <h1 class="text-color-darker">Logowanie</h1>
                     <div class="form-group">
@@ -33,6 +34,15 @@
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zaloguj</button>
                 </form>
+                <c:if test="${param.error != null}">
+
+            </div>
+            <div class="alert alert-primary container w-25 padding-small text-center" role="alert">
+
+                Niepoprwany login lub hasło!
+
+            </div>
+            </c:if>
             </div>
         </div>
     </div>

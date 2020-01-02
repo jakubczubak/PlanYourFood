@@ -46,6 +46,15 @@
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zarejestruj</button>
                 </form:form>
+                <c:if test="${param.error != null}">
+
+            </div>
+            <div class="alert alert-warning container w-25 padding-small text-center" role="alert">
+
+                Podany email jest zajęty!
+
+            </div>
+            </c:if>
             </div>
         </div>
     </div>

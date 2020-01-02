@@ -14,9 +14,11 @@ import pl.jakubczubak.app.service.AdminService;
 public class RegistrationController {
 
    AdminService adminService;
+   AdminRepository adminRepository;
 
-    public RegistrationController(AdminService adminService){
+    public RegistrationController(AdminService adminService, AdminRepository adminRepository){
         this.adminService=adminService;
+        this.adminRepository=adminRepository;
 
     }
     @GetMapping("/registration")
@@ -25,8 +27,13 @@ public class RegistrationController {
         return "registration";
     }
     @PostMapping("/registration")
-    public String registerNewUser(@ModelAttribute Admin admin){
-        adminService.saveUser(admin);
+    public String registerNewUser(@ModelAttribute Admin admin, Model model){
+        Admin existAdmin = adminRepository.findByEmail(admin.getEmail());
+        if(existAdmin!=null){
+            return "redirect:/registration?error";
+        }else{
+            adminService.saveUser(admin);
+        }
         return "redirect:/login";
     }
 }
