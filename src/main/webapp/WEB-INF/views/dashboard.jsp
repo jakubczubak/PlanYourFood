@@ -17,8 +17,7 @@
 </head>
 
 <body>
-<%@ include file="header.jsp" %>
-
+<%@ include file="appHeader.jsp" %>
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
         <ul class="nav flex-column long-bg">
