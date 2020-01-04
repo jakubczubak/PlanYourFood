@@ -26,13 +26,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link disabled" href="/app/user/edit">
+        <a class="nav-link disabled" href="/app/password/edit">
             <span>Zmień hasło</span>
             <i class="fas fa-angle-right"></i>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/super-admin-users.html">
+        <a class="nav-link" href="/app/admin">
             <span>Użytkownicy</span>
             <i class="fas fa-angle-right"></i>
         </a>
