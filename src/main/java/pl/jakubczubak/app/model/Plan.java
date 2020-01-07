@@ -11,7 +11,17 @@ public class Plan {
     private String name;
     private String description;
     private LocalDateTime created;
-    private int admin_id;
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
     @PrePersist
     public void prePersist() {
@@ -50,11 +60,5 @@ public class Plan {
         this.created = created;
     }
 
-    public int getAdmin_id() {
-        return admin_id;
-    }
 
-    public void setAdmin_id(int admin_id) {
-        this.admin_id = admin_id;
-    }
 }

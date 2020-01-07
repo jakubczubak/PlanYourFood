@@ -14,8 +14,17 @@ public class Recipe {
     private LocalDateTime created;
     private LocalDateTime updated;
     private int preparationTime;
-    private String preparation;
-    private int adminID;
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
     @PrePersist
     public void prePersist(){
@@ -83,19 +92,7 @@ public class Recipe {
         this.preparationTime = preparationTime;
     }
 
-    public String getPreparation() {
-        return preparation;
-    }
 
-    public void setPreparation(String preparation) {
-        this.preparation = preparation;
-    }
 
-    public int getAdminID() {
-        return adminID;
-    }
 
-    public void setAdminID(int adminID) {
-        this.adminID = adminID;
-    }
 }
