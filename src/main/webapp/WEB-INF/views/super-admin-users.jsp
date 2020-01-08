@@ -31,7 +31,7 @@
                         <h3 class="color-header text-uppercase">LISTA UŻYTKOWNIKÓW</h3>
                     </div>
                     <div class="col d-flex justify-content-end mb-2 noPadding">
-                        <a href="#" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
+                        <a href="/dashboard" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
                     </div>
                 </div>
 
@@ -46,30 +46,16 @@
                         </tr>
                         </thead>
                         <tbody class="text-color-lighter">
+                        <c:forEach var="user" items="${users}" varStatus="index">
                         <tr class="d-flex">
-                            <td class="col-1">1</td>
-                            <td class="col-3">Marek</td>
-                            <td class="col-6">Marecki</td>
+                            <td class="col-1">${index.count}</td>
+                            <td class="col-3">${user.firstName}</td>
+                            <td class="col-6">${user.lastName}</td>
                             <td class="col-2 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Blokuj</a>
+                                <a href="/app/admin/${user.id}" class="btn btn-danger rounded-0 text-light m-1">Blokuj</a>
                             </td>
                         </tr>
-                        <tr class="d-flex">
-                            <td class="col-1">2</td>
-                            <td class="col-3">Marek</td>
-                            <td class="col-6">Marecki</td>
-                            <td class="col-2 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Blokuj</a>
-                            </td>
-                        </tr>
-                        <tr class="d-flex">
-                            <td class="col-1">3</td>
-                            <td class="col-3">Marek</td>
-                            <td class="col-6">Marecki</td>
-                            <td class="col-2 center">
-                                <a href="#" class="btn btn-danger rounded-0 text-light m-1">Blokuj</a>
-                            </td>
-                        </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
 

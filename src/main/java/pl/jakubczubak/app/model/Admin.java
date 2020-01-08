@@ -13,6 +13,7 @@ public class Admin {
     private String email;
     private String password;
     private String repassword;
+    private boolean enable;
     @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "admin_role", joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> role;
@@ -28,6 +29,14 @@ public class Admin {
                 ", repassword='" + repassword + '\'' +
                 ", role=" + role +
                 '}';
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     public String getRepassword() {

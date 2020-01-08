@@ -9,15 +9,14 @@ import pl.jakubczubak.app.repository.AdminRepository;
 import java.util.List;
 
 @Controller
-public class SuperAdminUsersController {
+public class SuperAdminUsersBlockController {
     AdminRepository adminRepository;
-    public SuperAdminUsersController(AdminRepository adminRepository){
+    public SuperAdminUsersBlockController(AdminRepository adminRepository){
         this.adminRepository=adminRepository;
     }
-    @GetMapping("/app/admin")
+    @GetMapping("/app/admin/{id}")
     public String getSuperAdminUsersPage(Model model){
-        List<Admin> adminList = adminRepository.findAll();
-        model.addAttribute("users", adminList);
-        return "super-admin-users";
+
+        return "/dashboard";
     }
 }

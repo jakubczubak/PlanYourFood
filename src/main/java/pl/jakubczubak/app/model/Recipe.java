@@ -14,6 +14,16 @@ public class Recipe {
     private LocalDateTime created;
     private LocalDateTime updated;
     private int preparationTime;
+    private String methodOfPreparing;
+
+    public String getMethodOfPreparing() {
+        return methodOfPreparing;
+    }
+
+    public void setMethodOfPreparing(String methodOfPreparing) {
+        this.methodOfPreparing = methodOfPreparing;
+    }
+
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;

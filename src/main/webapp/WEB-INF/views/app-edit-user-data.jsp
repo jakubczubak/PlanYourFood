@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@
             <div class="m-4 border-dashed view-height">
                 <!-- fix action, method -->
                 <!-- add name attribute for all inputs -->
-                <form>
+                <form:form method="post" action="/app/user/edit" modelAttribute="admin" >
                     <div class="mt-4 ml-4 mr-4">
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Edytuj dane</h3></div>
@@ -44,25 +45,25 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Imię</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="Marek">
+                                    <form:input path="firstName" class="w-100 p-1"  placeholder="${admin.firstName}"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Nazwisko</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="Markowski">
+                                    <form:input path="lastName" class="w-100 p-1" placeholder="${admin.lastName}"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Email</h4></th>
                                 <td class="col-3">
-                                    <input class="p-1 w-100" type="text" value="marek@mark.pl">
+                                    <form:input path="email" readonly="true" class="p-1 w-100" type="text" placeholder="${admin.email}"/>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>
