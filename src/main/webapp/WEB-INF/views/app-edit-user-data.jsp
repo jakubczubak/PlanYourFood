@@ -57,7 +57,7 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Email</h4></th>
                                 <td class="col-3">
-                                    <form:input path="email" readonly="true" class="p-1 w-100" type="text" placeholder="${admin.email}"/>
+                                    <form:input path="email" readonly="true" class="p-1 w-100 grey-text" type="text" placeholder="email"/>
                                 </td>
                             </tr>
                             </tbody>

@@ -457,3 +457,6 @@ margin: 0 auto !important;
 .schedules-content-header {
   margin-bottom: 50px;
 }
+.grey-text{
+  color: gray;
+}

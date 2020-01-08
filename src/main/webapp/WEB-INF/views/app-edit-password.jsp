@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +31,7 @@
                 <div class="mt-4 ml-4 mr-4">
                     <!-- fix action, method -->
                     <!-- add name attribute for all inputs -->
-                    <form>
+                    <form:form method="post" modelAttribute="currentAdmin">
 
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Zmień hasło</h3></div>
@@ -45,18 +46,18 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Nowe hasło</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="">
+                                    <form:input path="password" class="w-100 p-1" />
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Powtórz hasło</h4></th>
                                 <td class="col-7">
-                                    <input class="w-100 p-1" value="">
+                                    <form:input path="repassword" class="w-100 p-1"  />
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                    </form>
+                    </form:form>
                 </div>
             </div>
 

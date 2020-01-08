@@ -27,7 +27,6 @@ public class AdminService {
         String encodePassword = bCryptPasswordEncoder.encode(admin.getPassword());
         admin.setPassword(encodePassword);
         admin.setRepassword(encodePassword);
-        admin.setEnable(true);
         Role userRole = roleRepository.findByRole("ADMIN");
         admin.setRole(new HashSet<Role>(Arrays.asList(userRole)));
         adminRepository.save(admin);
