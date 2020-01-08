@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +31,7 @@
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
                 <!-- fix action, method -->
                 <!-- add name attribute for all inputs -->
-                <form>
+                <form:form method="post" action="/app/schedule/edit" modelAttribute="plan">
                     <div class="row border-bottom border-3 p-1 m-1">
                         <div class="col noPadding">
                             <h3 class="color-header text-uppercase">NOWY PLAN</h3>
@@ -47,7 +48,7 @@
                                 Nazwa planu
                             </label>
                             <div class="col-sm-10">
-                                <input class="form-control" value="Plan jarski na bezmięsny tydzień" id="planName" placeholder="Nazwa planu">
+                                <form:input path="name" class="form-control"  id="planName" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -55,14 +56,15 @@
                                 Opis planu
                             </label>
                             <div class="col-sm-10">
-                                    <textarea class="form-control" rows="5" id="planDescription" placeholder="Opis plany">
-Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.
-                                    </textarea>
+                                    <form:textarea path="description" class="form-control" rows="5" id="planDescription" placeholder="Opis plany"></form:textarea>
                             </div>
+                            <form:hidden path="id"/>
+                            <form:hidden path="created"/>
+
                         </div>
 
                     </div>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>

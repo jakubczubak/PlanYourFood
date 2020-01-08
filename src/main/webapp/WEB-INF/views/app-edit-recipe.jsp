@@ -72,6 +72,7 @@
                                     <form:textarea path="ingredients" class="w-100 p-1" rows="10"></form:textarea>
                             </div>
                             <form:hidden path="id"/>
+                            <form:hidden path="created"/>
                         </div>
                     </form:form>
                 </div>

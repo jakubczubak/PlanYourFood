@@ -1,5 +1,7 @@
 package pl.jakubczubak.app.model;
 
+import org.springframework.data.repository.cdi.Eager;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
