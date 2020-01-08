@@ -34,6 +34,6 @@ public class AppAddRecipeController {
     public String addRecipe(@ModelAttribute Recipe recipe, Principal principal){
         recipe.setAdmin(adminRepository.findByEmail(principal.getName()));
         recipeRepository.save(recipe);
-        return "redirect:/dashboard";
+        return "redirect:/app/recipe/list/";
     }
 }

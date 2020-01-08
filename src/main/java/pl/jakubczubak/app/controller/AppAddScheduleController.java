@@ -32,6 +32,6 @@ public class AppAddScheduleController {
     public String addRecipe(@ModelAttribute Plan plan, Principal principal){
         plan.setAdmin(adminRepository.findByEmail(principal.getName()));
         planRepository.save(plan);
-        return "redirect:/dashboard";
+        return "redirect:/app/plan/list";
     }
 }
