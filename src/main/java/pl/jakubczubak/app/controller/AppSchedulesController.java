@@ -12,8 +12,10 @@ import java.util.List;
 @Controller
 public class AppSchedulesController {
     private PlanRepository planRepository;
+
     public AppSchedulesController(PlanRepository planRepository){
         this.planRepository=planRepository;
+
     }
     @GetMapping("/app/plan/list")
     public String getAppRecipesPage (Model model) {

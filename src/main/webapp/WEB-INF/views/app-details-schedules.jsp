@@ -32,7 +32,7 @@
                         <h3 class="color-header text-uppercase">SZCZEGÓŁY PLANU</h3>
                     </div>
                     <div class="col d-flex justify-content-end mb-2 noPadding">
-                        <a href="#" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
+                        <a href="/app/plan/list" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                                     Nazwa planu
                                 </span>
                             <div class="col-sm-10">
-                                <p class="schedules-text">Plan jarski na bezmięsny tydzień</p>
+                                <p class="schedules-text">${recipePlan.plan.name}</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -52,7 +52,7 @@
                                 </span>
                             <div class="col-sm-10">
                                 <p class="schedules-text">
-                                    Pojęcie kuchnia wegetariańska określa pożywienie, które ani nie zawiera mięsa, ani nie zostało przygotowane na bazie pochodzącej z mięsa (np. na rosole drobiowym). Laktoowowegetarianie (najczęściej spotykany typ wegetarian w zachodnim świecie) spożywają nabiał, laktowegetarianie wykluczają jaja, ale nie inne produkty nabiałowe.
+                                    ${recipePlan.plan.description}
                                 </p>
                             </div>
                         </div>

@@ -45,7 +45,7 @@
                             Wybierz plan
                         </label>
                         <div class="col-sm-3">
-                            <form:select path="plan.id" items="${planList}" itemValue="id" itemLabel="name"
+                            <form:select path="name" items="${planList}" itemValue="name" itemLabel="name"
                                          class="form-control" id="choosePlan">
 
                             </form:select>

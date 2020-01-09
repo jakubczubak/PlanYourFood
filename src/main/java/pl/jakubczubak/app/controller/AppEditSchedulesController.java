@@ -32,7 +32,10 @@ public class AppEditSchedulesController {
 
     @PostMapping("/app/schedule/edit")
     public String editPlan(@ModelAttribute Plan plan, Principal principal){
-        plan.setAdmin(adminRepository.findByEmail(principal.getName()));
+        Plan existPlan = planRepository.findOne(plan.getId());
+        plan.setAdmin(existPlan.getAdmin());
+        plan.setDay(existPlan.getDay());
+        plan.setRecipe(existPlan.getRecipe());
         planRepository.save(plan);
         return "redirect:/app/plan/list";
 

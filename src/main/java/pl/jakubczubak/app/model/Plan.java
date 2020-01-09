@@ -13,6 +13,12 @@ public class Plan {
     private String name;
     private String description;
     private LocalDateTime created;
+    private String mealName;
+    private int sequence;
+    @OneToOne
+    private Recipe recipe;
+    @OneToOne
+    private Day day;
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
@@ -62,5 +68,35 @@ public class Plan {
         this.created = created;
     }
 
+    public String getMealName() {
+        return mealName;
+    }
 
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public void setDay(Day day) {
+        this.day = day;
+    }
 }
