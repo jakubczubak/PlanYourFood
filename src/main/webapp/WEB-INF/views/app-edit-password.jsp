@@ -31,7 +31,7 @@
                 <div class="mt-4 ml-4 mr-4">
                     <!-- fix action, method -->
                     <!-- add name attribute for all inputs -->
-                    <form:form method="post" modelAttribute="currentAdmin">
+                    <form:form method="post" modelAttribute="password">
 
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Zmień hasło</h3></div>
@@ -44,20 +44,44 @@
                         <table class="table borderless">
                             <tbody>
                             <tr class="d-flex">
+                                <th scope="row" class="col-2"><h4>Stare hasło</h4></th>
+                                <td class="col-7">
+                                    <form:input path="oldPassword" class="w-100 p-1" placeholder="Podaj stare hasło"/>
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Nowe hasło</h4></th>
                                 <td class="col-7">
-                                    <form:input path="password" class="w-100 p-1" />
+                                    <form:input path="password" class="w-100 p-1" placeholder="Podaj nowe hasło"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Powtórz hasło</h4></th>
                                 <td class="col-7">
-                                    <form:input path="repassword" class="w-100 p-1"  />
+                                    <form:input path="rePassword" class="w-100 p-1" placeholder="Powtórz nowe hasło" />
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </form:form>
+                    <c:if test="${param.error != null}">
+
+                </div>
+                <div class="alert alert-danger   container w-25 padding-small text-center" role="alert">
+
+                    Niepoprawne dane!
+
+                </div>
+                </c:if>
+                <c:if test="${param.success != null}">
+
+            </div>
+            <div class="alert alert-success container w-25 padding-small text-center" role="alert">
+
+                Hasło zostało zmienione!
+
+            </div>
+            </c:if>
                 </div>
             </div>
 

@@ -43,7 +43,7 @@
                                     Nazwa planu
                                 </span>
                             <div class="col-sm-10">
-                                <p class="schedules-text">${recipePlan.plan.name}</p>
+                                <p class="schedules-text">${plan.name}</p>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -52,7 +52,7 @@
                                 </span>
                             <div class="col-sm-10">
                                 <p class="schedules-text">
-                                    ${recipePlan.plan.description}
+                                    ${plan.description}
                                 </p>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                     <table class="table">
                         <thead>
                         <tr class="d-flex">
-                            <th class="col-2">Poniedziałek</th>
+                            <th class="col-2">${plan.day.name}</th>
                             <th class="col-7"></th>
                             <th class="col-1"></th>
                             <th class="col-2"></th>
@@ -69,8 +69,8 @@
                         </thead>
                         <tbody class="text-color-lighter">
                         <tr class="d-flex">
-                            <td class="col-2">śniadanie</td>
-                            <td class="col-7">płatki owsiane z jagodami i komosą ryżową</td>
+                            <td class="col-2">${plan.recipe.name}</td>
+                            <td class="col-7">${plan.recipe.description}</td>
                             <td class="col-1 center">
                                 <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
                             </td>
