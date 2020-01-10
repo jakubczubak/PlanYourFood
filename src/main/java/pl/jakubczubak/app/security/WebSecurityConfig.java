@@ -59,6 +59,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 
         auth
+                .inMemoryAuthentication()
+                .withUser("admin")
+                .password(new BCryptPasswordEncoder().encode("admin"))
+                .roles("ADMIN");
+        auth
                 .jdbcAuthentication()
                 .dataSource(dataSource())
                 .usersByUsernameQuery(
@@ -67,6 +72,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "select a.email, r.role from admin a inner join admin_role ar on(a.id=ar.admin_id) inner join role r on(ar.role_id=r.id) where a.email=?")
                 .passwordEncoder(passwordEncoder());
     }
+
+
 
 
 }

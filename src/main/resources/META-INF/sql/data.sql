@@ -8,3 +8,4 @@ insert into day (name, sequence) value ("Czwartek", 4);
 insert into day (name, sequence) value ("Piatek", 5);
 insert into day (name, sequence) value ("Sobota", 6);
 insert into day (name, sequence) value ("Niedziela", 7);
+
