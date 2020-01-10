@@ -3,7 +3,7 @@ package pl.jakubczubak.app.service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.jakubczubak.app.model.Admin;
-import pl.jakubczubak.app.model.Password;
+import pl.jakubczubak.app.model.PasswordDTO;
 import pl.jakubczubak.app.repository.AdminRepository;
 
 import java.security.Principal;
@@ -16,7 +16,7 @@ public class ChangePasswordService {
         this.adminRepository=adminRepository;
         this.bCryptPasswordEncoder=bCryptPasswordEncoder;
     }
-    public boolean ChangePassword(Password password, Principal principal){
+    public boolean ChangePassword(PasswordDTO password, Principal principal){
         Admin currentAdmin = adminRepository.findByEmail(principal.getName());
         if(bCryptPasswordEncoder.matches(password.getOldPassword(),currentAdmin.getPassword())){
             if(password.getPassword().equals(password.getRePassword())){

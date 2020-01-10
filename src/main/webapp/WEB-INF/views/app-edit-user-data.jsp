@@ -63,7 +63,17 @@
                             </tbody>
                         </table>
                     </div>
+                <c:if test="${param.success != null}">
+
+
+            <div class="alert alert-success container w-25 padding-small text-center" role="alert">
+
+                Dane zostały zaktualizowane!
+
+            </div>
+            </c:if>
                 </form:form>
+
             </div>
         </div>
     </div>

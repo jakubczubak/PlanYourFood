@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import pl.jakubczubak.app.model.Admin;
 import pl.jakubczubak.app.repository.AdminRepository;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -16,7 +17,7 @@ public class SuperAdminUsersController {
     }
     @GetMapping("/app/admin")
     public String getSuperAdminUsersPage(Model model){
-        List<Admin> adminList = adminRepository.findAll();
+        List<Admin> adminList = adminRepository.findAllByEnable(true);
         model.addAttribute("users", adminList);
         return "super-admin-users";
     }

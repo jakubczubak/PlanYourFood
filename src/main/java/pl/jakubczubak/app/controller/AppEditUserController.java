@@ -20,7 +20,6 @@ public class AppEditUserController {
     @GetMapping("/app/user/edit")
     public String editUser(Model model, Principal principal){
         Admin currentAdmin = adminRepository.findByEmail(principal.getName());
-        System.out.println(principal.getName());
         model.addAttribute("admin", currentAdmin);
         return "app-edit-user-data";
     }
@@ -33,6 +32,6 @@ public class AppEditUserController {
         admin.setId(currentAdmin.getId());
         admin.setRole(currentAdmin.getRole());
         adminRepository.save(admin);
-        return "redirect:/app/user/edit";
+        return "redirect:/app/user/edit?success";
     }
 }

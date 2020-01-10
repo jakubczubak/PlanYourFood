@@ -31,11 +31,7 @@
                         <h3 class="color-header text-uppercase">LISTA UŻYTKOWNIKÓW</h3>
                     </div>
                     <div class="col d-flex justify-content-end mb-2 noPadding">
-                        <a href="/app/admin/blocked" class="btn btn-danger">Zablokowani użytkownicy</a>
-
-                    </div>
-                    <div class="col d-flex justify-content-end mb-2 noPadding">
-                        <a href="/dashboard" class="btn btn-success">Powrót</a>
+                        <a href="/app/admin" class="btn btn-success">Powrót</a>
                     </div>
                 </div>
 
@@ -56,7 +52,7 @@
                             <td class="col-3">${user.firstName}</td>
                             <td class="col-6">${user.lastName}</td>
                             <td class="col-2 center">
-                                <a href="/app/admin/${user.id}" class="btn btn-danger rounded-3 text-light m-1">Blokuj</a>
+                                <a href="/app/admin/blocked/${user.id}" class="btn btn-primary">Odblokuj</a>
                             </td>
                         </tr>
                         </c:forEach>

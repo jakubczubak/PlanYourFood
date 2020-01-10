@@ -29,6 +29,7 @@ public class AdminService {
         admin.setRepassword(encodePassword);
         Role userRole = roleRepository.findByRole("ADMIN");
         admin.setRole(new HashSet<Role>(Arrays.asList(userRole)));
+        admin.setEnable(true);
         adminRepository.save(admin);
     }
 }
