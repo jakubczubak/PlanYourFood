@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import pl.jakubczubak.app.model.Admin;
+import pl.jakubczubak.app.model.Role;
 import pl.jakubczubak.app.repository.AdminRepository;
 import pl.jakubczubak.app.repository.PlanRepository;
 import pl.jakubczubak.app.repository.RecipeRepository;
@@ -19,6 +20,7 @@ public class DashboardController {
 
     PlanRepository planRepository;
     RecipeRepository recipeRepository;
+    AdminRepository adminRepository;
 
     public DashboardController(PlanRepository planRepository, RecipeRepository recipeRepository){
         this.planRepository=planRepository;
