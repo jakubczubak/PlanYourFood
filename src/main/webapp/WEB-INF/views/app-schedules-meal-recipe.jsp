@@ -74,7 +74,7 @@
                             Przepis
                         </label>
                         <div class="col-sm-4">
-                            <form:select path="recipe.id" items="${recipeList}" itemValue="id" itemLabel="name"
+                            <form:select path="recipe" items="${recipeList}" itemValue="id" itemLabel="name"
                                          class="form-control" id="recipie">
 
                             </form:select>
@@ -85,7 +85,7 @@
                             Dzień
                         </label>
                         <div class="col-sm-2">
-                            <form:select path="day.id" items="${dayList}" itemLabel="name" itemValue="id"
+                            <form:select path="day" items="${dayList}" itemLabel="name" itemValue="id"
                                          class="form-control" id="day">
 
                             </form:select>

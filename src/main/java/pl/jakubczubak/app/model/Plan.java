@@ -4,6 +4,7 @@ import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Plan {
@@ -15,10 +16,10 @@ public class Plan {
     private LocalDateTime created;
     private String mealName;
     private int sequence;
-    @OneToOne
-    private Recipe recipe;
-    @OneToOne
-    private Day day;
+    @OneToMany
+    private List<Recipe> recipe;
+    @OneToMany
+    private List<Day> day;
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
@@ -84,19 +85,19 @@ public class Plan {
         this.sequence = sequence;
     }
 
-    public Recipe getRecipe() {
+    public List<Recipe> getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(Recipe recipe) {
+    public void setRecipe(List<Recipe> recipe) {
         this.recipe = recipe;
     }
 
-    public Day getDay() {
+    public List<Day> getDay() {
         return day;
     }
 
-    public void setDay(Day day) {
+    public void setDay(List<Day> day) {
         this.day = day;
     }
 }
