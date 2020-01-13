@@ -60,8 +60,7 @@
                             </div>
                             <form:hidden path="id"/>
                             <form:hidden path="created"/>
-                            <form:hidden path="sequence"/>
-                            <form:hidden path="mealName"/>
+
 
                         </div>
 

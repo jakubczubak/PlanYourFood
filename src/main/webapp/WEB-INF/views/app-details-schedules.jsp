@@ -59,9 +59,10 @@
                     </div>
 
                     <table class="table">
+                        <c:forEach items="${recipePlanList}" var="recipePlan">
                         <thead>
                         <tr class="d-flex">
-                            <th class="col-2">${plan.day.name}</th>
+                            <th class="col-2">${recipePlan.day.name}</th>
                             <th class="col-7"></th>
                             <th class="col-1"></th>
                             <th class="col-2"></th>
@@ -69,17 +70,18 @@
                         </thead>
                         <tbody class="text-color-lighter">
                         <tr class="d-flex">
-                            <td class="col-2">${plan.recipe.name}</td>
-                            <td class="col-7">${plan.recipe.description}</td>
+                            <td class="col-2">${recipePlan.recipe.name}</td>
+                            <td class="col-7">${recipePlan.recipe.description}</td>
                             <td class="col-1 center">
                                 <a href="#" class="btn btn-danger rounded-0 text-light m-1">Usuń</a>
                             </td>
                             <td class="col-2 center">
-                                <a href="app-details-schedules.html" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                                <a href="/app/recipe/details/${recipePlan.recipe.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                             </td>
                         </tr>
 
                         </tbody>
+                        </c:forEach>
                     </table>
 
                 </div>

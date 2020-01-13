@@ -28,7 +28,7 @@
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
-                <form:form method="post" modelAttribute="scheduleRecipe">
+                <form:form method="post" modelAttribute="RecipePlan">
                 <div class="row border-bottom border-3 p-1 m-1">
                     <div class="col noPadding">
                         <h3 class="color-header text-uppercase">DODAJ PRZEPIS DO PLANU</h3>
@@ -45,7 +45,7 @@
                             Wybierz plan
                         </label>
                         <div class="col-sm-3">
-                            <form:select path="name" items="${planList}" itemValue="name" itemLabel="name"
+                            <form:select path="plan" items="${planList}" itemValue="id" itemLabel="name"
                                          class="form-control" id="choosePlan">
 
                             </form:select>

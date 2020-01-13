@@ -2,6 +2,7 @@ package pl.jakubczubak.app.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Recipe {
@@ -15,14 +16,9 @@ public class Recipe {
     private LocalDateTime updated;
     private int preparationTime;
     private String methodOfPreparing;
-
-    public String getMethodOfPreparing() {
-        return methodOfPreparing;
-    }
-
-    public void setMethodOfPreparing(String methodOfPreparing) {
-        this.methodOfPreparing = methodOfPreparing;
-    }
+    @ManyToMany(mappedBy = "recipe",
+    cascade = CascadeType.REMOVE)
+    private List<RecipePlan> recipePlan;
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
@@ -102,7 +98,19 @@ public class Recipe {
         this.preparationTime = preparationTime;
     }
 
+    public String getMethodOfPreparing() {
+        return methodOfPreparing;
+    }
 
+    public void setMethodOfPreparing(String methodOfPreparing) {
+        this.methodOfPreparing = methodOfPreparing;
+    }
 
+    public List<RecipePlan> getRecipePlan() {
+        return recipePlan;
+    }
 
+    public void setRecipePlan(List<RecipePlan> recipePlan) {
+        this.recipePlan = recipePlan;
+    }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import pl.jakubczubak.app.Converter.DayConverter;
+import pl.jakubczubak.app.Converter.PlanConverter;
 import pl.jakubczubak.app.Converter.RecipeConverter;
 
 import javax.persistence.EntityManagerFactory;
@@ -49,6 +50,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getDayConverter());
         registry.addConverter(getRecipeConverter());
+       registry.addConverter(getPlanConverter());
     }
     @Bean
     public DayConverter getDayConverter() {
@@ -57,5 +59,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public RecipeConverter getRecipeConverter() {
         return new RecipeConverter();
+    }
+    @Bean
+    public PlanConverter getPlanConverter() {
+        return new PlanConverter();
     }
 }
