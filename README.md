@@ -1,5 +1,5 @@
 # Zaplanuj Jedzonko - plan a meal app.
-###Description:
+##Description:
 
 Plan your meal, an application that lets you create recipes and nutrition plans :)
 
