@@ -35,10 +35,6 @@
 
                     </div>
                     <div class="col d-flex justify-content-end mb-2 noPadding">
-                        <a href="/app/admin/list" class="btn btn-primary">Lista administratorów</a>
-
-                    </div>
-                    <div class="col d-flex justify-content-end mb-2 noPadding">
                         <a href="/dashboard" class="btn btn-success">Powrót</a>
                     </div>
                 </div>

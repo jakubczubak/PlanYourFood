@@ -5,4 +5,5 @@ import pl.jakubczubak.app.model.Recipe;
 
 public interface RecipeRepositoryCustom  {
     Recipe myCustomfindById(Long id);
+
 }

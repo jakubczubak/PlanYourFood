@@ -45,7 +45,7 @@
                             Wybierz plan
                         </label>
                         <div class="col-sm-3">
-                            <form:select path="plan" items="${planList}" itemValue="id" itemLabel="name"
+                            <form:select multiple="false" path="plan" items="${planList}" itemValue="id" itemLabel="name"
                                          class="form-control" id="choosePlan">
 
                             </form:select>
@@ -74,7 +74,7 @@
                             Przepis
                         </label>
                         <div class="col-sm-4">
-                            <form:select path="recipe" items="${recipeList}" itemValue="id" itemLabel="name"
+                            <form:select multiple="false" path="recipe" items="${recipeList}" itemValue="id" itemLabel="name"
                                          class="form-control" id="recipie">
 
                             </form:select>

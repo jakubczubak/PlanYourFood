@@ -9,4 +9,5 @@ import java.util.List;
 public interface RecipePlanRepository extends JpaRepository<RecipePlan,Long> {
     RecipePlan findByPlan (Plan plan);
     List<RecipePlan> findAllByPlanName (String planName);
+
 }

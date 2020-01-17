@@ -11,7 +11,7 @@ public class RecipePlan {
     private Long id;
     private String mealName;
     private int sequence;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Recipe> recipe;
     @ManyToMany
     private List<Plan> plan;
