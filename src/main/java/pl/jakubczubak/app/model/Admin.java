@@ -13,7 +13,7 @@ public class Admin {
     private String email;
     private String password;
     private String repassword;
-    private boolean enable;
+    private int enabled;
     @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "admin_role", joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> role;
@@ -31,13 +31,15 @@ public class Admin {
                 '}';
     }
 
-    public boolean isEnable() {
-        return enable;
+    public int getEnabled() {
+        return enabled;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
+
+
 
     public String getRepassword() {
         return repassword;

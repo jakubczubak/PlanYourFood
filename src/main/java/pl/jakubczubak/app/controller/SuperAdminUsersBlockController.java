@@ -24,7 +24,7 @@ public class SuperAdminUsersBlockController {
     @GetMapping("/app/admin/{id}")
     public String getSuperAdminUsersPage(@PathVariable Long id){
         Admin admin = adminRepositoryCustomImpl.findById(id);
-        admin.setEnable(false);
+        admin.setEnabled(0);
         adminRepository.save(admin);
 
         return "redirect:/app/admin";
@@ -32,7 +32,7 @@ public class SuperAdminUsersBlockController {
 
     @GetMapping("/app/admin/blocked")
     public String getBlockedUsersList(Model model){
-        List<Admin> adminList = adminRepository.findAllByEnable(false);
+        List<Admin> adminList = adminRepository.findAllByEnabled(0);
         model.addAttribute("users", adminList);
         return "blockedusers";
     }
@@ -40,7 +40,7 @@ public class SuperAdminUsersBlockController {
     @GetMapping("/app/admin/blocked/{id}")
     public String unBanUser(@PathVariable Long id){
         Admin admin = adminRepositoryCustomImpl.findById(id);
-        admin.setEnable(true);
+        admin.setEnabled(1);
         adminRepository.save(admin);
         return "redirect:/app/admin/blocked";
     }

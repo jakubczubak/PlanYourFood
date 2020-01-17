@@ -5,19 +5,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import pl.jakubczubak.app.repository.AdminRepository;
+
+import java.util.Collection;
 
 @Configuration
 @EnableWebSecurity
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -45,6 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+
+
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
@@ -61,8 +68,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
 
+
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+
+
 
         auth
                 .inMemoryAuthentication()
@@ -70,13 +80,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(new BCryptPasswordEncoder().encode("admin"))
                 .roles("ADMIN");
         auth
+
                 .jdbcAuthentication()
                 .dataSource(dataSource())
                 .usersByUsernameQuery(
-                        "select email, password, id from admin where email=?")
+                        "select email, password, enabled from admin where email=?")
                 .authoritiesByUsernameQuery(
                         "select a.email, r.role from admin a inner join admin_role ar on(a.id=ar.admin_id) inner join role r on(ar.role_id=r.id) where a.email=?")
                 .passwordEncoder(passwordEncoder());
+
     }
 
 
