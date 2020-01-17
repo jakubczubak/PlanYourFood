@@ -6,5 +6,6 @@ import pl.jakubczubak.app.model.Plan;
 
 public interface PlanRepository extends JpaRepository<Plan,Long> {
     Plan findByName (String name);
+    Plan findTopByOrderByCreatedDesc();
 
 }

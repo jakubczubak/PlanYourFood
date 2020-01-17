@@ -58,6 +58,7 @@ public class AppDetailsSchedulesController {
             }
 
         }
+
         model.addAttribute("plan", plan);
         model.addAttribute("monday", mondayList);
         model.addAttribute("tuesday", tuesdayList);
