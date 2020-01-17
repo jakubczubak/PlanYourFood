@@ -19,16 +19,17 @@ public class AppDetailsSchedulesController {
     private RecipePlanRepository recipePlanRepository;
     private DayRepository dayRepository;
 
-    public AppDetailsSchedulesController(PlanRepository planRepository, RecipePlanRepository recipePlanRepository, DayRepository dayRepository){
-        this.recipePlanRepository=recipePlanRepository;
-        this.planRepository=planRepository;
-        this.dayRepository=dayRepository;
+    public AppDetailsSchedulesController(PlanRepository planRepository, RecipePlanRepository recipePlanRepository, DayRepository dayRepository) {
+        this.recipePlanRepository = recipePlanRepository;
+        this.planRepository = planRepository;
+        this.dayRepository = dayRepository;
     }
+
     @GetMapping("/app/schedule/details/{id}")
-    public String getAppDetailsSchedulePage(@PathVariable Long id, Model model){
+    public String getAppDetailsSchedulePage(@PathVariable Long id, Model model) {
 
         Plan plan = planRepository.findOne(id);
-        String existPlanName= plan.getName();
+        String existPlanName = plan.getName();
         List<RecipePlan> recipePlanList = recipePlanRepository.findAllByPlanName(existPlanName);
 
         List<RecipePlan> mondayList = new ArrayList<>();
@@ -39,26 +40,20 @@ public class AppDetailsSchedulesController {
         List<RecipePlan> saturdayList = new ArrayList<>();
         List<RecipePlan> sundayList = new ArrayList<>();
 
-        for (RecipePlan recipePlan:recipePlanList) {
-            if(recipePlan.getDay().getName().equals("Poniedzialek")){
+        for (RecipePlan recipePlan : recipePlanList) {
+            if (recipePlan.getDay().getName().equals("Poniedzialek")) {
                 mondayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Wtorek")){
+            } else if (recipePlan.getDay().getName().equals("Wtorek")) {
                 tuesdayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Sroda")){
+            } else if (recipePlan.getDay().getName().equals("Sroda")) {
                 wednesdayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Czwartek")){
+            } else if (recipePlan.getDay().getName().equals("Czwartek")) {
                 thursdayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Piatek")){
+            } else if (recipePlan.getDay().getName().equals("Piatek")) {
                 fridayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Sobota")){
+            } else if (recipePlan.getDay().getName().equals("Sobota")) {
                 saturdayList.add(recipePlan);
-            }
-            else if(recipePlan.getDay().getName().equals("Niedziela")){
+            } else if (recipePlan.getDay().getName().equals("Niedziela")) {
                 sundayList.add(recipePlan);
             }
 
@@ -74,5 +69,11 @@ public class AppDetailsSchedulesController {
 
 
         return "app-details-schedules";
+    }
+
+    @GetMapping("/app/schedule/details/delete/{id}/{planID}")
+    public String deleteRecipeFromPlan(@PathVariable Long id, @PathVariable Long planID){
+        recipePlanRepository.delete(id);
+        return "redirect:/app/schedule/details/"+planID;
     }
 }
