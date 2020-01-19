@@ -45,16 +45,8 @@
                         <form:input path="repassword" type="text" class="form-control" id="repassword" name="repassword" placeholder="powtórz hasło"/>
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zarejestruj</button>
+                    <form:errors path="*" cssClass="error alert alert-danger" element="div" />
                 </form:form>
-                <c:if test="${param.error != null}">
-
-            </div>
-            <div class="alert alert-warning container w-25 padding-small text-center" role="alert">
-
-                Podany email jest zajęty!
-
-            </div>
-            </c:if>
             </div>
         </div>
     </div>

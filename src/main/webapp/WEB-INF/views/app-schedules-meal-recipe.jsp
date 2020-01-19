@@ -49,6 +49,7 @@
                                          class="form-control" id="choosePlan">
 
                             </form:select>
+                            <form:errors path="plan" cssClass="error alert alert-danger" element="div" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,6 +59,7 @@
                         <div class="col-sm-10">
                             <form:input path="mealName" type="text" class="form-control" value="" id="name"
                                         placeholder="Nazwa posiłku"/>
+                            <form:errors path="mealName" cssClass="error alert alert-danger" element="div" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -67,6 +69,7 @@
                         <div class="col-sm-2">
                             <form:input path="sequence" type="text" class="form-control" value="" id="number"
                                         placeholder="Numer posiłki"/>
+                            <form:errors path="sequence" cssClass="error alert alert-danger" element="div" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -78,6 +81,7 @@
                                          class="form-control" id="recipie">
 
                             </form:select>
+                            <form:errors path="recipe" cssClass="error alert alert-danger" element="div" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -89,6 +93,7 @@
                                          class="form-control" id="day">
 
                             </form:select>
+                            <form:errors path="day" cssClass="error alert alert-danger" element="div" />
                         </div>
                     </div>
 

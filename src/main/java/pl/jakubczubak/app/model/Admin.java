@@ -1,6 +1,9 @@
 package pl.jakubczubak.app.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -8,10 +11,18 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull(message = "*Imię nie może być puste")
+    @Size(min = 3, message = "*Imię musi zawierać min 3 znaki")
     private String firstName;
+    @NotNull(message = "*Nazwisko nie może być puste")
+    @Size(min = 3, message = "*Nazwisko musi zawierać min 3 znaki")
     private String lastName;
+    @Email(message = "*Podany email jest nieprawidłowy")
+    @NotNull
     private String email;
+    @NotNull(message = "*Wprowadź hasło")
     private String password;
+    @NotNull(message = "*Wprowadź hasło")
     private String repassword;
     private int enabled;
     @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)

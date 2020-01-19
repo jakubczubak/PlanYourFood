@@ -46,11 +46,15 @@
                                 <td class="col-7">
 
                                     <form:input path="name" name="name" class="w-100 p-1" value=""/>
+                                    <form:errors path="name" cssClass="error alert alert-danger" element="div" />
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Opis przepisu</th>
-                                <td class="col-7"><form:textarea path="description" class="w-100 p-1" rows="5"></form:textarea></td>
+                                <td class="col-7">
+                                    <form:textarea path="description" class="w-100 p-1" rows="5"></form:textarea>
+                                    <form:errors path="description" cssClass="error alert alert-danger" element="div" />
+                                </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Przygotowanie (minuty)</th>
@@ -78,6 +82,7 @@
                             </div>
                         </div>
                     </div>
+
                 </form:form>
             </div>
         </div>

@@ -2,6 +2,10 @@ package pl.jakubczubak.app.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -9,12 +13,19 @@ public class RecipePlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
     private String mealName;
+    @NotNull
+    @Min(value = 0, message = "Wprowadzona wartość musi być liczbą")
     private int sequence;
+    @NotNull(message = "Wybierz przepis")
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Recipe> recipe;
+    @NotNull(message = "Wybierz plan")
     @ManyToMany
     private List<Plan> plan;
+    @NotNull(message = "Wybierz dzień tygodnia")
     @OneToOne
     private Day day;
 

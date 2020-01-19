@@ -2,6 +2,7 @@ package pl.jakubczubak.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import pl.jakubczubak.app.model.Recipe;
 import pl.jakubczubak.app.repository.AdminRepository;
 import pl.jakubczubak.app.repository.RecipeRepository;
 
+import javax.validation.Valid;
 import java.security.Principal;
 
 
@@ -31,7 +33,10 @@ public class AppAddRecipeController {
     }
 
     @PostMapping("/app/recipe/add")
-    public String addRecipe(@ModelAttribute Recipe recipe, Principal principal){
+    public String addRecipe(@Valid @ModelAttribute Recipe recipe, BindingResult result, Principal principal){
+        if(result.hasErrors()){
+            return "app-add-recipe";
+        }
         recipe.setAdmin(adminRepository.findByEmail(principal.getName()));
         recipeRepository.save(recipe);
         return "redirect:/app/recipe/list/";

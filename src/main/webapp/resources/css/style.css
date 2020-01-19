@@ -460,3 +460,8 @@ margin: 0 auto !important;
 .grey-text{
   color: gray;
 }
+
+.error{
+  color: red;
+  margin-top: 15px;
+}

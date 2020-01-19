@@ -48,6 +48,7 @@
                             </label>
                             <div class="col-sm-10">
                                 <form:input path="name" class="form-control" id="planName" placeholder="Nazwa planu"/>
+                                <form:errors path="name" cssClass="error alert alert-danger" element="div" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -57,10 +58,12 @@
                             <div class="col-sm-10">
                                 <form:textarea path="description" class="form-control" rows="5" id="planDescription"
                                           placeholder="Opis plany"></form:textarea>
+                                <form:errors path="description" cssClass="error alert alert-danger" element="div" />
                             </div>
                         </div>
 
                     </div>
+
                 </form:form>
             </div>
         </div>

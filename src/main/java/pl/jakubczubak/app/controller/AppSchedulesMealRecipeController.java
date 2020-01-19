@@ -2,6 +2,7 @@ package pl.jakubczubak.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import pl.jakubczubak.app.model.Recipe;
 import pl.jakubczubak.app.model.RecipePlan;
 import pl.jakubczubak.app.repository.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -43,7 +45,16 @@ public class AppSchedulesMealRecipeController {
     }
 
     @PostMapping("/app/schedulesmealrecipe/add")
-    public String processAppScheduleMealRecipePage(@ModelAttribute RecipePlan recipePlan){
+    public String processAppScheduleMealRecipePage(@Valid @ModelAttribute("RecipePlan") RecipePlan recipePlan, BindingResult result, Model model){
+        if(result.hasErrors()){
+            List<Day> dayList = dayRepository.findAll();
+            List<Recipe> recipeList = recipeRepository.findAll();
+            List<Plan> planList = planRepository.findAll();
+            model.addAttribute("dayList", dayList);
+            model.addAttribute("recipeList",recipeList);
+            model.addAttribute("planList",planList);
+            return "app-schedules-meal-recipe";
+        }
         recipePlanRepository.save(recipePlan);
         return "redirect:/app/plan/list";
     }

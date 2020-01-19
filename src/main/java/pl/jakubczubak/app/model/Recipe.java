@@ -1,6 +1,8 @@
 package pl.jakubczubak.app.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -9,11 +11,16 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
     private String name;
     private String ingredients;
+    @NotNull
+    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
     private String description;
     private LocalDateTime created;
     private LocalDateTime updated;
+
     private int preparationTime;
     private String methodOfPreparing;
     @ManyToMany(mappedBy = "recipe",
