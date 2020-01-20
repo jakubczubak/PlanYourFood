@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PasswordDTO {
+
     private String oldPassword;
     private String password;
     private String rePassword;

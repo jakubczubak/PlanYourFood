@@ -37,24 +37,16 @@ public class DashboardController {
     @GetMapping("/dashboard")
     public String getDashboardPage(Principal principal,Model model){
         model.addAttribute("email",principal.getName());
-        model.addAttribute("recipesCount",recipeRepository.findAll().size());
-        model.addAttribute("plansCount",planRepository.findAll().size());
+        model.addAttribute("recipesCount",recipeRepository.findAllByAdmin_Email(principal.getName()).size());
+        model.addAttribute("plansCount",planRepository.findAllByAdmin_Email(principal.getName()).size());
 
-        Plan lastPlan = planRepository.findTopByOrderByCreatedDesc();
+//        Plan lastPlan = planRepository.findTopByOrderByCreatedDesc();
+        Plan lastPlan = planRepository.findFirstByAdmin_EmailOrderByCreatedDesc(principal.getName());
 
         if(lastPlan!=null){
             model.addAttribute("lastPlan", lastPlan);
             String lastPlanName = lastPlan.getName();
             List<RecipePlan> recipePlanList = recipePlanRepository.findAllByPlanName(lastPlanName);
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println("asdasdasdasdasd");
-            System.out.println(recipePlanList.size());
             List<RecipePlan> mondayList = new ArrayList<>();
             List<RecipePlan> tuesdayList = new ArrayList<>();
             List<RecipePlan> wednesdayList = new ArrayList<>();

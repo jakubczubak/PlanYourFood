@@ -14,10 +14,10 @@ public class Plan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
+    @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String name;
     @NotNull
-    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
+    @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String description;
     private LocalDateTime created;
     @ManyToOne

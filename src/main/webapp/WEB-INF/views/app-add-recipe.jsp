@@ -74,11 +74,14 @@
                         <div class="row d-flex">
                             <div class="col-5 p-4">
                                 <form:textarea path="methodOfPreparing" class="w-100 p-1" rows="10"></form:textarea>
+                                <form:errors path="methodOfPreparing" cssClass="error alert alert-danger" element="div" />
+
                             </div>
                             <div class="col-2"></div>
 
                             <div class="col-5 p-4">
                                 <form:textarea path="ingredients" class="w-100 p-1" rows="10"></form:textarea>
+                                <form:errors path="ingredients" cssClass="error alert alert-danger" element="div" />
                             </div>
                         </div>
                     </div>

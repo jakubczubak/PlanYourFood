@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.jakubczubak.app.model.Recipe;
 import pl.jakubczubak.app.repository.RecipeRepository;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -18,8 +19,8 @@ public class AppRecipesController {
         this.recipeRepository=recipeRepository;
     }
     @GetMapping("/app/recipe/list/")
-    public String getAppRecipesPage (Model model) {
-        List<Recipe> recipeList = recipeRepository.findAll();
+    public String getAppRecipesPage (Model model, Principal principal) {
+        List<Recipe> recipeList = recipeRepository.findAllByAdmin_Email(principal.getName());
         model.addAttribute("recipeList", recipeList);
             return "app-recipes";
         }

@@ -12,16 +12,20 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
+    @Size(min = 3, max=100, message = "Pole musi zawierać min 3 max 100 znaków")
     private String name;
+    @NotNull
+    @Size(min = 3, max=300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String ingredients;
     @NotNull
-    @Size(min = 3, message = "Pole musi zawierać min 3 znaki")
+    @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String description;
     private LocalDateTime created;
     private LocalDateTime updated;
 
     private int preparationTime;
+    @NotNull
+    @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String methodOfPreparing;
     @ManyToMany(mappedBy = "recipe",
     cascade = CascadeType.REMOVE)

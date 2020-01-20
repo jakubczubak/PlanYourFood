@@ -2,12 +2,14 @@ package pl.jakubczubak.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.jakubczubak.app.model.PasswordDTO;
 import pl.jakubczubak.app.service.ChangePasswordService;
 
+import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
@@ -25,7 +27,7 @@ public class AppEditPasswordController {
     }
     @PostMapping("/app/password/edit")
 
-    public String getAppEditPasswordPage(@ModelAttribute PasswordDTO password, Principal principal){
+    public String getAppEditPasswordPage(@Valid @ModelAttribute PasswordDTO password, BindingResult result, Principal principal){
        if(changePasswordService.ChangePassword(password,principal)){
            return "redirect:/app/password/edit?success";
        }else {

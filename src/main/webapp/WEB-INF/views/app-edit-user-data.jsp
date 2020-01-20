@@ -46,12 +46,15 @@
                                 <th scope="row" class="col-2"><h4>Imię</h4></th>
                                 <td class="col-7">
                                     <form:input path="firstName" class="w-100 p-1"  placeholder="${admin.firstName}"/>
+                                    <form:errors path="firstName" cssClass="error alert alert-danger" element="div" />
+
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Nazwisko</h4></th>
                                 <td class="col-7">
                                     <form:input path="lastName" class="w-100 p-1" placeholder="${admin.lastName}"/>
+                                    <form:errors path="lastName" cssClass="error alert alert-danger" element="div" />
                                 </td>
                             </tr>
                             <tr class="d-flex">

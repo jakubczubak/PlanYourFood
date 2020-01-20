@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth
                 .inMemoryAuthentication()
-                .withUser("admin")
+                .withUser("admin@gmail.com")
                 .password(new BCryptPasswordEncoder().encode("admin"))
                 .roles("ADMIN");
         auth
