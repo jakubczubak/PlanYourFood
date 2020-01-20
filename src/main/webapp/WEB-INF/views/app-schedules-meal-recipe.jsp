@@ -67,7 +67,7 @@
                             Numer posiłku
                         </label>
                         <div class="col-sm-2">
-                            <form:input path="sequence" type="text" class="form-control" value="" id="number"
+                            <form:input path="sequence" type="number" class="form-control" value="" id="number"
                                         placeholder="Numer posiłki"/>
                             <form:errors path="sequence" cssClass="error alert alert-danger" element="div" />
                         </div>

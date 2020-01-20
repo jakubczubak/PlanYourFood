@@ -36,13 +36,13 @@
                         <form:input path="lastName" type="text" class="form-control" id="surname" name="surname" placeholder="podaj nazwisko"/>
                     </div>
                     <div class="form-group">
-                        <form:input path="email" type="text" class="form-control" id="email" name="email" placeholder="podaj email"/>
+                        <form:input path="email" type="email" class="form-control" id="email" name="email" placeholder="podaj email"/>
                     </div>
                     <div class="form-group">
-                        <form:input path="password" type="text" class="form-control" id="password" name="password" placeholder="podaj hasło"/>
+                        <form:input path="password" type="password" class="form-control" id="password" name="password" placeholder="podaj hasło"/>
                     </div>
                     <div class="form-group">
-                        <form:input path="repassword" type="text" class="form-control" id="repassword" name="repassword" placeholder="powtórz hasło"/>
+                        <form:input path="repassword" type="password" class="form-control" id="repassword" name="repassword" placeholder="powtórz hasło"/>
                     </div>
                     <button class="btn btn-color rounded-0" type="submit">Zarejestruj</button>
                     <form:errors path="*" cssClass="error alert alert-danger" element="div" />
