@@ -30,3 +30,4 @@ Plan your meal, an application that lets you create recipes and nutrition plans 
 
 ## For admin:
 ![Bez tytułu13](https://user-images.githubusercontent.com/45847111/72754394-ebdecf80-3bc7-11ea-9b07-4a71864afa61.png)
+![image](https://user-images.githubusercontent.com/45847111/73555228-83a4af00-444d-11ea-9288-a767401e5ac1.png)
