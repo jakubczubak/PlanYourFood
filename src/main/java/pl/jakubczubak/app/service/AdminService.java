@@ -18,10 +18,10 @@ public class AdminService {
     private RoleRepository roleRepository;
     private AdminRepository adminRepository;
 
-    public AdminService(BCryptPasswordEncoder bCryptPasswordEncoder, RoleRepository roleRepository, AdminRepository adminRepository){
-        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
-        this.roleRepository=roleRepository;
-        this.adminRepository=adminRepository;
+    public AdminService(BCryptPasswordEncoder bCryptPasswordEncoder, RoleRepository roleRepository, AdminRepository adminRepository) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.roleRepository = roleRepository;
+        this.adminRepository = adminRepository;
     }
 
     public void saveUser(Admin admin) {
@@ -34,7 +34,7 @@ public class AdminService {
         adminRepository.save(admin);
     }
 
-    public Admin editUserData(Admin admin, Principal principal){
+    public Admin editUserData(Admin admin, Principal principal) {
         Admin currentAdmin = adminRepository.findByEmail(principal.getName());
         admin.setRepassword(currentAdmin.getRepassword());
         admin.setPassword(currentAdmin.getPassword());

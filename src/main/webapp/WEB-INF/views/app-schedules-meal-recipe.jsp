@@ -45,11 +45,12 @@
                             Wybierz plan
                         </label>
                         <div class="col-sm-3">
-                            <form:select multiple="false" path="plan" items="${planList}" itemValue="id" itemLabel="name"
+                            <form:select multiple="false" path="plan" items="${planList}" itemValue="id"
+                                         itemLabel="name"
                                          class="form-control" id="choosePlan">
 
                             </form:select>
-                            <form:errors path="plan" cssClass="error alert alert-danger" element="div" />
+                            <form:errors path="plan" cssClass="error alert alert-danger" element="div"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -59,7 +60,7 @@
                         <div class="col-sm-10">
                             <form:input path="mealName" type="text" class="form-control" value="" id="name"
                                         placeholder="Nazwa posiłku"/>
-                            <form:errors path="mealName" cssClass="error alert alert-danger" element="div" />
+                            <form:errors path="mealName" cssClass="error alert alert-danger" element="div"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -69,7 +70,7 @@
                         <div class="col-sm-2">
                             <form:input path="sequence" type="number" class="form-control" value="" id="number"
                                         placeholder="Numer posiłki"/>
-                            <form:errors path="sequence" cssClass="error alert alert-danger" element="div" />
+                            <form:errors path="sequence" cssClass="error alert alert-danger" element="div"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -77,11 +78,12 @@
                             Przepis
                         </label>
                         <div class="col-sm-4">
-                            <form:select multiple="false" path="recipe" items="${recipeList}" itemValue="id" itemLabel="name"
+                            <form:select multiple="false" path="recipe" items="${recipeList}" itemValue="id"
+                                         itemLabel="name"
                                          class="form-control" id="recipie">
 
                             </form:select>
-                            <form:errors path="recipe" cssClass="error alert alert-danger" element="div" />
+                            <form:errors path="recipe" cssClass="error alert alert-danger" element="div"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -93,7 +95,7 @@
                                          class="form-control" id="day">
 
                             </form:select>
-                            <form:errors path="day" cssClass="error alert alert-danger" element="div" />
+                            <form:errors path="day" cssClass="error alert alert-danger" element="div"/>
                         </div>
                     </div>
 

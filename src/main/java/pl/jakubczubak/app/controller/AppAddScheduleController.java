@@ -19,20 +19,21 @@ public class AppAddScheduleController {
     private PlanRepository planRepository;
     private AdminRepository adminRepository;
 
-    public AppAddScheduleController(PlanRepository planRepository, AdminRepository adminRepository){
-        this.planRepository=planRepository;
-        this.adminRepository=adminRepository;
+    public AppAddScheduleController(PlanRepository planRepository, AdminRepository adminRepository) {
+        this.planRepository = planRepository;
+        this.adminRepository = adminRepository;
     }
+
     @GetMapping("/app/schedule/add")
-    public String addRecipe(Model model){
+    public String addRecipe(Model model) {
         model.addAttribute("schedule", new Plan());
         return "app-add-schedules";
     }
 
 
     @PostMapping("/app/schedule/add")
-    public String addRecipe(@Valid  @ModelAttribute("schedule") Plan plan, BindingResult result, Principal principal){
-        if(result.hasErrors()){
+    public String addRecipe(@Valid @ModelAttribute("schedule") Plan plan, BindingResult result, Principal principal) {
+        if (result.hasErrors()) {
             return "app-add-schedules";
         }
         plan.setAdmin(adminRepository.findByEmail(principal.getName()));

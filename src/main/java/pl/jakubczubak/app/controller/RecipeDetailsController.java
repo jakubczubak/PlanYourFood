@@ -12,14 +12,16 @@ import pl.jakubczubak.app.repository.RecipeRepositoryCustomImpl;
 public class RecipeDetailsController {
     private RecipeRepository recipeRepository;
     private RecipeRepositoryCustomImpl recipeRepositoryCustomImpl;
-    public RecipeDetailsController(RecipeRepository recipeRepository, RecipeRepositoryCustomImpl recipeRepositoryCustomImpl){
-        this.recipeRepository=recipeRepository;
-        this.recipeRepositoryCustomImpl=recipeRepositoryCustomImpl;
+
+    public RecipeDetailsController(RecipeRepository recipeRepository, RecipeRepositoryCustomImpl recipeRepositoryCustomImpl) {
+        this.recipeRepository = recipeRepository;
+        this.recipeRepositoryCustomImpl = recipeRepositoryCustomImpl;
     }
+
     @GetMapping("/recipe/details/{id}")
-    public String getRecipeDetailsPage(@PathVariable Long id, Model model){
+    public String getRecipeDetailsPage(@PathVariable Long id, Model model) {
         Recipe recipe = recipeRepositoryCustomImpl.myCustomfindById(id);
-        model.addAttribute("recipe",recipe);
+        model.addAttribute("recipe", recipe);
         return "recipe-details";
     }
 }

@@ -12,10 +12,10 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 3, max=100, message = "Pole musi zawierać min 3 max 100 znaków")
+    @Size(min = 3, max = 100, message = "Pole musi zawierać min 3 max 100 znaków")
     private String name;
     @NotNull
-    @Size(min = 3, max=300, message = "Pole musi zawierać min 3 max 100 znaków")
+    @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String ingredients;
     @NotNull
     @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
@@ -28,7 +28,7 @@ public class Recipe {
     @Size(min = 3, max = 300, message = "Pole musi zawierać min 3 max 100 znaków")
     private String methodOfPreparing;
     @ManyToMany(mappedBy = "recipe",
-    cascade = CascadeType.REMOVE)
+            cascade = CascadeType.REMOVE)
     private List<RecipePlan> recipePlan;
 
     @ManyToOne
@@ -44,13 +44,13 @@ public class Recipe {
     }
 
     @PrePersist
-    public void prePersist(){
-        created=LocalDateTime.now();
+    public void prePersist() {
+        created = LocalDateTime.now();
     }
 
     @PreUpdate
-    public void preUpdate(){
-        updated=LocalDateTime.now();
+    public void preUpdate() {
+        updated = LocalDateTime.now();
     }
 
     public Long getId() {

@@ -12,11 +12,12 @@ import java.util.List;
 public class RecipesController {
     private RecipeRepository recipeRepository;
 
-    public RecipesController(RecipeRepository recipeRepository){
-        this.recipeRepository=recipeRepository;
+    public RecipesController(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
     }
+
     @GetMapping("/recipes")
-    public String getRecipePage(Model model){
+    public String getRecipePage(Model model) {
         List<Recipe> recipeList = recipeRepository.findAll();
         model.addAttribute("recipeList", recipeList);
         return "recipes";

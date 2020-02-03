@@ -5,20 +5,22 @@
 
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-             pageEncoding="UTF-8"%>
+             pageEncoding="UTF-8" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaplanuj Jedzonko</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
           rel="stylesheet">
     <link href='<c:url value="/resources/css/style.css"/>' rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
 <body>
-<%@include file="appHeader.jsp"%>
+<%@include file="appHeader.jsp" %>
 
 
 <section class="dashboard-section">
@@ -33,7 +35,10 @@
                     <form:form method="post" modelAttribute="recipe" action="/app/recipe/edit">
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Edycja przepisu</h3></div>
-                            <div class="col d-flex justify-content-end mb-2"><button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz</button></div>
+                            <div class="col d-flex justify-content-end mb-2">
+                                <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz
+                                </button>
+                            </div>
                         </div>
 
                         <table class="table borderless">
@@ -41,12 +46,13 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Nazwa Przepisu</th>
                                 <td class="col-7">
-                                    <form:input path="name" class="w-100 p-1" />
+                                    <form:input path="name" class="w-100 p-1"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Opis przepisu</th>
-                                <td class="col-7"> <form:textarea path="description" class="w-100 p-1" rows="5"></form:textarea></td>
+                                <td class="col-7"><form:textarea path="description" class="w-100 p-1"
+                                                                 rows="5"></form:textarea></td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Przygotowanie (minuty)</th>
@@ -58,7 +64,8 @@
                         </table>
 
                         <div class="row d-flex">
-                            <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Sposób przygotowania</h3></div>
+                            <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Sposób
+                                przygotowania</h3></div>
                             <div class="col-2"></div>
                             <div class="col-5 border-bottom border-3"><h3 class="text-uppercase">Składniki</h3></div>
                         </div>
@@ -69,7 +76,7 @@
                             <div class="col-2"></div>
 
                             <div class="col-5 p-4">
-                                    <form:textarea path="ingredients" class="w-100 p-1" rows="10"></form:textarea>
+                                <form:textarea path="ingredients" class="w-100 p-1" rows="10"></form:textarea>
                             </div>
                             <form:hidden path="id"/>
                             <form:hidden path="created"/>
@@ -82,11 +89,14 @@
     </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 </body>
 </html>

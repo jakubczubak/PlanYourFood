@@ -13,9 +13,10 @@ import javax.transaction.Transactional;
 public class RecipeRepositoryCustomImpl implements RecipeRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
+
     @Override
     public Recipe myCustomfindById(Long id) {
-        Recipe recipe = entityManager.find(Recipe.class,id);
+        Recipe recipe = entityManager.find(Recipe.class, id);
         Hibernate.initialize(recipe.getAdmin());
         return recipe;
     }

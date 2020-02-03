@@ -5,7 +5,7 @@
 
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-             pageEncoding="UTF-8"%>
+             pageEncoding="UTF-8" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaplanuj Jedzonko</title>
@@ -20,11 +20,11 @@
 </head>
 
 <body>
-<%@include file="appHeader.jsp"%>
+<%@include file="appHeader.jsp" %>
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <%@include file="sideMenu.jsp"%>
+        <%@include file="sideMenu.jsp" %>
 
         <div class="m-4 p-3 width-medium text-color-darker">
             <div class="m-4 border-dashed view-height">
@@ -58,7 +58,7 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Powtórz hasło</h4></th>
                                 <td class="col-7">
-                                    <form:input path="rePassword" class="w-100 p-1" placeholder="Powtórz nowe hasło" />
+                                    <form:input path="rePassword" class="w-100 p-1" placeholder="Powtórz nowe hasło"/>
                                 </td>
                             </tr>
                             </tbody>
@@ -82,10 +82,10 @@
 
             </div>
             </c:if>
-                </div>
-            </div>
-
         </div>
+    </div>
+
+    </div>
     </div>
 </section>
 

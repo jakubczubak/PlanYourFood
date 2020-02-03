@@ -51,7 +51,6 @@ public class Admin {
     }
 
 
-
     public String getRepassword() {
         return repassword;
     }

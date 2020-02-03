@@ -10,6 +10,7 @@ import pl.jakubczubak.app.repository.RecipeRepository;
 public class PlanConverter implements Converter<String, Plan> {
     @Autowired
     PlanRepository planRepository;
+
     @Override
     public Plan convert(String s) {
         return planRepository.findOne(Long.parseLong(s));

@@ -21,20 +21,20 @@ public class AppAddRecipeController {
     RecipeRepository recipeRepository;
     AdminRepository adminRepository;
 
-    public AppAddRecipeController(RecipeRepository recipeRepository, AdminRepository adminRepository){
-        this.recipeRepository=recipeRepository;
-        this.adminRepository=adminRepository;
+    public AppAddRecipeController(RecipeRepository recipeRepository, AdminRepository adminRepository) {
+        this.recipeRepository = recipeRepository;
+        this.adminRepository = adminRepository;
     }
 
     @GetMapping("/app/recipe/add")
-    public String addRecipe(Model model){
+    public String addRecipe(Model model) {
         model.addAttribute("recipe", new Recipe());
         return "app-add-recipe";
     }
 
     @PostMapping("/app/recipe/add")
-    public String addRecipe(@Valid @ModelAttribute Recipe recipe, BindingResult result, Principal principal){
-        if(result.hasErrors()){
+    public String addRecipe(@Valid @ModelAttribute Recipe recipe, BindingResult result, Principal principal) {
+        if (result.hasErrors()) {
             return "app-add-recipe";
         }
         recipe.setAdmin(adminRepository.findByEmail(principal.getName()));

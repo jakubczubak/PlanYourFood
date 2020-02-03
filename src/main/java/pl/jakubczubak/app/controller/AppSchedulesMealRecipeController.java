@@ -24,35 +24,35 @@ public class AppSchedulesMealRecipeController {
     private RecipePlanRepository recipePlanRepository;
 
 
-
-    public AppSchedulesMealRecipeController(DayRepository dayRepository, RecipeRepository recipeRepository, PlanRepository planRepository,RecipePlanRepository recipePlanRepository){
-        this.dayRepository=dayRepository;
-        this.recipeRepository=recipeRepository;
-        this.planRepository=planRepository;
-        this.recipePlanRepository=recipePlanRepository;
+    public AppSchedulesMealRecipeController(DayRepository dayRepository, RecipeRepository recipeRepository, PlanRepository planRepository, RecipePlanRepository recipePlanRepository) {
+        this.dayRepository = dayRepository;
+        this.recipeRepository = recipeRepository;
+        this.planRepository = planRepository;
+        this.recipePlanRepository = recipePlanRepository;
 
     }
+
     @GetMapping("/app/schedulesmealrecipe/add")
-    public String getAppSchedulesMealRecipePage(Model model){
+    public String getAppSchedulesMealRecipePage(Model model) {
         List<Day> dayList = dayRepository.findAll();
         List<Recipe> recipeList = recipeRepository.findAll();
         List<Plan> planList = planRepository.findAll();
         model.addAttribute("dayList", dayList);
-        model.addAttribute("recipeList",recipeList);
-        model.addAttribute("planList",planList);
+        model.addAttribute("recipeList", recipeList);
+        model.addAttribute("planList", planList);
         model.addAttribute("RecipePlan", new RecipePlan());
         return "app-schedules-meal-recipe";
     }
 
     @PostMapping("/app/schedulesmealrecipe/add")
-    public String processAppScheduleMealRecipePage(@Valid @ModelAttribute("RecipePlan") RecipePlan recipePlan, BindingResult result, Model model){
-        if(result.hasErrors()){
+    public String processAppScheduleMealRecipePage(@Valid @ModelAttribute("RecipePlan") RecipePlan recipePlan, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             List<Day> dayList = dayRepository.findAll();
             List<Recipe> recipeList = recipeRepository.findAll();
             List<Plan> planList = planRepository.findAll();
             model.addAttribute("dayList", dayList);
-            model.addAttribute("recipeList",recipeList);
-            model.addAttribute("planList",planList);
+            model.addAttribute("recipeList", recipeList);
+            model.addAttribute("planList", planList);
             return "app-schedules-meal-recipe";
         }
         recipePlanRepository.save(recipePlan);

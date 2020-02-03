@@ -73,8 +73,8 @@ public class AppDetailsSchedulesController {
     }
 
     @GetMapping("/app/schedule/details/delete/{id}/{planID}")
-    public String deleteRecipeFromPlan(@PathVariable Long id, @PathVariable Long planID){
+    public String deleteRecipeFromPlan(@PathVariable Long id, @PathVariable Long planID) {
         recipePlanRepository.delete(id);
-        return "redirect:/app/schedule/details/"+planID;
+        return "redirect:/app/schedule/details/" + planID;
     }
 }

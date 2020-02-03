@@ -28,22 +28,22 @@ public class DashboardController {
     RecipePlanRepository recipePlanRepository;
 
 
-    public DashboardController(PlanRepository planRepository, RecipeRepository recipeRepository, RecipePlanRepository recipePlanRepository){
-        this.planRepository=planRepository;
-        this.recipeRepository=recipeRepository;
-        this.recipePlanRepository=recipePlanRepository;
+    public DashboardController(PlanRepository planRepository, RecipeRepository recipeRepository, RecipePlanRepository recipePlanRepository) {
+        this.planRepository = planRepository;
+        this.recipeRepository = recipeRepository;
+        this.recipePlanRepository = recipePlanRepository;
     }
 
     @GetMapping("/dashboard")
-    public String getDashboardPage(Principal principal,Model model){
-        model.addAttribute("email",principal.getName());
-        model.addAttribute("recipesCount",recipeRepository.findAllByAdmin_Email(principal.getName()).size());
-        model.addAttribute("plansCount",planRepository.findAllByAdmin_Email(principal.getName()).size());
+    public String getDashboardPage(Principal principal, Model model) {
+        model.addAttribute("email", principal.getName());
+        model.addAttribute("recipesCount", recipeRepository.findAllByAdmin_Email(principal.getName()).size());
+        model.addAttribute("plansCount", planRepository.findAllByAdmin_Email(principal.getName()).size());
 
 //        Plan lastPlan = planRepository.findTopByOrderByCreatedDesc();
         Plan lastPlan = planRepository.findFirstByAdmin_EmailOrderByCreatedDesc(principal.getName());
 
-        if(lastPlan!=null){
+        if (lastPlan != null) {
             model.addAttribute("lastPlan", lastPlan);
             String lastPlanName = lastPlan.getName();
             List<RecipePlan> recipePlanList = recipePlanRepository.findAllByPlanName(lastPlanName);

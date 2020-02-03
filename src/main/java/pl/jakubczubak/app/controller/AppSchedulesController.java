@@ -14,19 +14,21 @@ import java.util.List;
 public class AppSchedulesController {
     private PlanRepository planRepository;
 
-    public AppSchedulesController(PlanRepository planRepository){
-        this.planRepository=planRepository;
+    public AppSchedulesController(PlanRepository planRepository) {
+        this.planRepository = planRepository;
 
     }
+
     @GetMapping("/app/plan/list")
-    public String getAppRecipesPage (Model model, Principal principal) {
+    public String getAppRecipesPage(Model model, Principal principal) {
         List<Plan> planList = planRepository.findAllByAdmin_Email(principal.getName());
         model.addAttribute("planList", planList);
-            return "app-schedules";
-        }
+        return "app-schedules";
+    }
+
     @GetMapping("/app/plan/list/{id}")
-    public String deletePlanById(@PathVariable Long id){
+    public String deletePlanById(@PathVariable Long id) {
         planRepository.delete(id);
         return "redirect:/app/plan/list";
     }
-    }
+}

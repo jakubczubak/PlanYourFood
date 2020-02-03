@@ -21,7 +21,7 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories( basePackages = "pl.jakubczubak.app")
+@EnableJpaRepositories(basePackages = "pl.jakubczubak.app")
 @ComponentScan(basePackages = "pl.jakubczubak.app")
 public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
@@ -30,36 +30,48 @@ public class AppConfig extends WebMvcConfigurerAdapter {
                 new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
-        return viewResolver; }
+        return viewResolver;
+    }
+
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
         emfb.setPersistenceUnitName("foodappPersistenceUnit");
-        return emfb; }
+        return emfb;
+    }
+
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager tm = new JpaTransactionManager(emf);
-        return tm; }
+        return tm;
+    }
+
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
-    @Override   public void configureDefaultServletHandling (  DefaultServletHandlerConfigurer configurer) {  configurer.enable();   }
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getDayConverter());
         registry.addConverter(getRecipeConverter());
-       registry.addConverter(getPlanConverter());
+        registry.addConverter(getPlanConverter());
     }
+
     @Bean
     public DayConverter getDayConverter() {
         return new DayConverter();
     }
+
     @Bean
     public RecipeConverter getRecipeConverter() {
         return new RecipeConverter();
     }
+
     @Bean
     public PlanConverter getPlanConverter() {
         return new PlanConverter();

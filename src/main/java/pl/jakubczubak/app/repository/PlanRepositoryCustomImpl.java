@@ -11,9 +11,10 @@ import javax.persistence.PersistenceContext;
 public class PlanRepositoryCustomImpl implements PlanRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
+
     @Override
     public Plan myCustomFindById(Long id) {
-        Plan plan = entityManager.find(Plan.class,id);
+        Plan plan = entityManager.find(Plan.class, id);
         Hibernate.initialize(plan);
         return plan;
     }

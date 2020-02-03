@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AccessDeniedController {
     @GetMapping("/403")
-    public String getAccessDeniedPage(){
+    public String getAccessDeniedPage() {
         return "403";
     }
 }

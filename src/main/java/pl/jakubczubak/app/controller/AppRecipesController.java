@@ -15,20 +15,21 @@ import java.util.List;
 public class AppRecipesController {
     private RecipeRepository recipeRepository;
 
-    public AppRecipesController(RecipeRepository recipeRepository){
-        this.recipeRepository=recipeRepository;
+    public AppRecipesController(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
     }
+
     @GetMapping("/app/recipe/list/")
-    public String getAppRecipesPage (Model model, Principal principal) {
+    public String getAppRecipesPage(Model model, Principal principal) {
         List<Recipe> recipeList = recipeRepository.findAllByAdmin_Email(principal.getName());
         model.addAttribute("recipeList", recipeList);
-            return "app-recipes";
-        }
+        return "app-recipes";
+    }
 
     @GetMapping("/app/recipe/list/delete/{id}")
-    public String deleteRecipeById (@PathVariable Long id) {
+    public String deleteRecipeById(@PathVariable Long id) {
         recipeRepository.delete(id);
         return "redirect:/app/recipe/list/";
     }
 
-    }
+}

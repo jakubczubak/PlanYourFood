@@ -12,14 +12,16 @@ import java.security.Principal;
 public class ChangePasswordService {
     private AdminRepository adminRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    public ChangePasswordService(AdminRepository adminRepository,BCryptPasswordEncoder bCryptPasswordEncoder){
-        this.adminRepository=adminRepository;
-        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
+
+    public ChangePasswordService(AdminRepository adminRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.adminRepository = adminRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-    public boolean ChangePassword(PasswordDTO password, Principal principal){
+
+    public boolean ChangePassword(PasswordDTO password, Principal principal) {
         Admin currentAdmin = adminRepository.findByEmail(principal.getName());
-        if(bCryptPasswordEncoder.matches(password.getOldPassword(),currentAdmin.getPassword())){
-            if(password.getPassword().equals(password.getRePassword())){
+        if (bCryptPasswordEncoder.matches(password.getOldPassword(), currentAdmin.getPassword())) {
+            if (password.getPassword().equals(password.getRePassword())) {
                 String encodePassword = bCryptPasswordEncoder.encode(password.getPassword());
                 currentAdmin.setPassword(encodePassword);
                 currentAdmin.setRepassword(encodePassword);

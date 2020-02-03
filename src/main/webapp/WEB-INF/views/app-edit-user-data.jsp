@@ -5,7 +5,7 @@
 
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-             pageEncoding="UTF-8"%>
+             pageEncoding="UTF-8" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaplanuj Jedzonko</title>
@@ -20,17 +20,17 @@
 </head>
 
 <body>
-<%@include file="appHeader.jsp"%>
+<%@include file="appHeader.jsp" %>
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <%@include file="sideMenu.jsp"%>
+        <%@include file="sideMenu.jsp" %>
 
         <div class="m-4 p-3 width-medium text-color-darker">
             <div class="m-4 border-dashed view-height">
                 <!-- fix action, method -->
                 <!-- add name attribute for all inputs -->
-                <form:form method="post" action="/app/user/edit" modelAttribute="admin" >
+                <form:form method="post" action="/app/user/edit" modelAttribute="admin">
                     <div class="mt-4 ml-4 mr-4">
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Edytuj dane</h3></div>
@@ -45,8 +45,8 @@
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Imię</h4></th>
                                 <td class="col-7">
-                                    <form:input path="firstName" class="w-100 p-1"  placeholder="${admin.firstName}"/>
-                                    <form:errors path="firstName" cssClass="error alert alert-danger" element="div" />
+                                    <form:input path="firstName" class="w-100 p-1" placeholder="${admin.firstName}"/>
+                                    <form:errors path="firstName" cssClass="error alert alert-danger" element="div"/>
 
                                 </td>
                             </tr>
@@ -54,27 +54,28 @@
                                 <th scope="row" class="col-2"><h4>Nazwisko</h4></th>
                                 <td class="col-7">
                                     <form:input path="lastName" class="w-100 p-1" placeholder="${admin.lastName}"/>
-                                    <form:errors path="lastName" cssClass="error alert alert-danger" element="div" />
+                                    <form:errors path="lastName" cssClass="error alert alert-danger" element="div"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2"><h4>Email</h4></th>
                                 <td class="col-3">
-                                    <form:input path="email" readonly="true" class="p-1 w-100 grey-text" type="text" placeholder="email"/>
+                                    <form:input path="email" readonly="true" class="p-1 w-100 grey-text" type="text"
+                                                placeholder="email"/>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                <c:if test="${param.success != null}">
+                    <c:if test="${param.success != null}">
 
 
-            <div class="alert alert-success container w-25 padding-small text-center" role="alert">
+                        <div class="alert alert-success container w-25 padding-small text-center" role="alert">
 
-                Dane zostały zaktualizowane!
+                            Dane zostały zaktualizowane!
 
-            </div>
-            </c:if>
+                        </div>
+                    </c:if>
                 </form:form>
 
             </div>

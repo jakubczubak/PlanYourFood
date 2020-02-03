@@ -5,7 +5,7 @@
 
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-             pageEncoding="UTF-8"%>
+             pageEncoding="UTF-8" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaplanuj Jedzonko</title>
@@ -20,11 +20,11 @@
 </head>
 
 <body>
-<%@include file="appHeader.jsp"%>
+<%@include file="appHeader.jsp" %>
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <%@include file="sideMenu.jsp"%>
+        <%@include file="sideMenu.jsp" %>
 
         <div class="m-4 p-3 width-medium">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
@@ -48,7 +48,7 @@
                             </label>
                             <div class="col-sm-10">
                                 <form:input path="name" class="form-control" id="planName" placeholder="Nazwa planu"/>
-                                <form:errors path="name" cssClass="error alert alert-danger" element="div" />
+                                <form:errors path="name" cssClass="error alert alert-danger" element="div"/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -57,8 +57,8 @@
                             </label>
                             <div class="col-sm-10">
                                 <form:textarea path="description" class="form-control" rows="5" id="planDescription"
-                                          placeholder="Opis plany"></form:textarea>
-                                <form:errors path="description" cssClass="error alert alert-danger" element="div" />
+                                               placeholder="Opis plany"></form:textarea>
+                                <form:errors path="description" cssClass="error alert alert-danger" element="div"/>
                             </div>
                         </div>
 

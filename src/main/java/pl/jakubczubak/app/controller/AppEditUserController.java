@@ -18,23 +18,25 @@ public class AppEditUserController {
 
     private AdminRepository adminRepository;
     private AdminService adminService;
-    public AppEditUserController(AdminRepository adminRepository, AdminService adminService){
-        this.adminRepository=adminRepository;
-        this.adminService=adminService;
+
+    public AppEditUserController(AdminRepository adminRepository, AdminService adminService) {
+        this.adminRepository = adminRepository;
+        this.adminService = adminService;
     }
+
     @GetMapping("/app/user/edit")
-    public String editUser(Model model, Principal principal){
+    public String editUser(Model model, Principal principal) {
         Admin currentAdmin = adminRepository.findByEmail(principal.getName());
         model.addAttribute("admin", currentAdmin);
         return "app-edit-user-data";
     }
 
     @PostMapping("/app/user/edit")
-    public String editUser(@Valid @ModelAttribute Admin admin, BindingResult result, Principal principal){
-        if(result.hasErrors()){
+    public String editUser(@Valid @ModelAttribute Admin admin, BindingResult result, Principal principal) {
+        if (result.hasErrors()) {
             return "app-edit-user-data";
         }
-        adminRepository.save(adminService.editUserData(admin,principal));
+        adminRepository.save(adminService.editUserData(admin, principal));
         return "redirect:/app/user/edit?success";
     }
 }

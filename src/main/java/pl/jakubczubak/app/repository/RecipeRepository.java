@@ -6,6 +6,6 @@ import pl.jakubczubak.app.model.Recipe;
 
 import java.util.List;
 
-public interface  RecipeRepository extends JpaRepository<Recipe,Long> {
-    List<Recipe> findAllByAdmin_Email (String emial);
+public interface RecipeRepository extends JpaRepository<Recipe, Long> {
+    List<Recipe> findAllByAdmin_Email(String emial);
 }

@@ -16,37 +16,39 @@ import javax.validation.Valid;
 @Controller
 public class RegistrationController {
 
-   AdminService adminService;
-   AdminRepository adminRepository;
+    AdminService adminService;
+    AdminRepository adminRepository;
 
-    public RegistrationController(AdminService adminService, AdminRepository adminRepository){
-        this.adminService=adminService;
-        this.adminRepository=adminRepository;
+    public RegistrationController(AdminService adminService, AdminRepository adminRepository) {
+        this.adminService = adminService;
+        this.adminRepository = adminRepository;
 
     }
+
     @GetMapping("/registration")
-    public String getRegistrationPage(Model model){
+    public String getRegistrationPage(Model model) {
         model.addAttribute("admin", new Admin());
         return "registration";
     }
+
     @PostMapping("/registration")
-    public String registerNewUser(@Valid @ModelAttribute Admin admin, BindingResult result, Model model){
+    public String registerNewUser(@Valid @ModelAttribute Admin admin, BindingResult result, Model model) {
         Admin existAdmin = adminRepository.findByEmail(admin.getEmail());
-        if(existAdmin!=null) {
+        if (existAdmin != null) {
             result
                     .rejectValue("email", "error.admin", "Podany email istnieje w naszej bazie danych :)");
             return "registration";
         }
-        if(!admin.getPassword().equals(admin.getRepassword())){
+        if (!admin.getPassword().equals(admin.getRepassword())) {
             result
-                    .rejectValue("password","error.admin", "Wpisane hasła różnią się od siebie");
+                    .rejectValue("password", "error.admin", "Wpisane hasła różnią się od siebie");
             return "registration";
         }
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "registration";
 
         }
-            adminService.saveUser(admin);
+        adminService.saveUser(admin);
 
         return "redirect:/login";
     }

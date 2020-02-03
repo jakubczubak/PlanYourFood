@@ -18,20 +18,22 @@ public class AppEditSchedulesController {
     private PlanRepositoryCustomImpl planRepositoryCustomImpl;
     private PlanRepository planRepository;
     private AdminRepository adminRepository;
-    public AppEditSchedulesController(PlanRepositoryCustomImpl planRepositoryCustomImpl, PlanRepository planRepository, AdminRepository adminRepository){
-        this.planRepositoryCustomImpl=planRepositoryCustomImpl;
-        this.planRepository=planRepository;
-        this.adminRepository=adminRepository;
+
+    public AppEditSchedulesController(PlanRepositoryCustomImpl planRepositoryCustomImpl, PlanRepository planRepository, AdminRepository adminRepository) {
+        this.planRepositoryCustomImpl = planRepositoryCustomImpl;
+        this.planRepository = planRepository;
+        this.adminRepository = adminRepository;
     }
+
     @GetMapping("/app/schedule/edit/{id}")
-    public String getAppEditSchedulePage(@PathVariable Long id, Model model){
+    public String getAppEditSchedulePage(@PathVariable Long id, Model model) {
         Plan plan = planRepositoryCustomImpl.myCustomFindById(id);
         model.addAttribute("plan", plan);
         return "app-edit-schedules";
     }
 
     @PostMapping("/app/schedule/edit")
-    public String editPlan(@ModelAttribute Plan plan){
+    public String editPlan(@ModelAttribute Plan plan) {
         planRepository.save(plan);
         return "redirect:/app/plan/list";
 

@@ -19,13 +19,15 @@ public class AppEditRecipeController {
     private RecipeRepositoryCustomImpl recipeRepositoryCustomImpl;
     private RecipeRepository recipeRepository;
     private AdminRepository adminRepository;
-    public AppEditRecipeController(RecipeRepositoryCustomImpl recipeRepositoryCustomImpl,RecipeRepository recipeRepository, AdminRepository adminRepository){
-        this.recipeRepositoryCustomImpl=recipeRepositoryCustomImpl;
-        this.recipeRepository=recipeRepository;
-        this.adminRepository=adminRepository;
+
+    public AppEditRecipeController(RecipeRepositoryCustomImpl recipeRepositoryCustomImpl, RecipeRepository recipeRepository, AdminRepository adminRepository) {
+        this.recipeRepositoryCustomImpl = recipeRepositoryCustomImpl;
+        this.recipeRepository = recipeRepository;
+        this.adminRepository = adminRepository;
     }
+
     @GetMapping("app/recipe/edit/{id}")
-    public String getRecipeEditPage(@PathVariable Long id, Model model){
+    public String getRecipeEditPage(@PathVariable Long id, Model model) {
         Recipe recipe = recipeRepositoryCustomImpl.myCustomfindById(id);
         model.addAttribute("recipe", recipe);
 

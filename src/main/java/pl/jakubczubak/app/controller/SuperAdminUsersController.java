@@ -14,11 +14,13 @@ import java.util.List;
 @Secured("ROLE_ADMIN")
 public class SuperAdminUsersController {
     AdminRepository adminRepository;
-    public SuperAdminUsersController(AdminRepository adminRepository){
-        this.adminRepository=adminRepository;
+
+    public SuperAdminUsersController(AdminRepository adminRepository) {
+        this.adminRepository = adminRepository;
     }
+
     @GetMapping("/app/admin")
-    public String getSuperAdminUsersPage(Model model){
+    public String getSuperAdminUsersPage(Model model) {
         List<Admin> adminList = adminRepository.findAllByEnabled(1);
         model.addAttribute("users", adminList);
         return "super-admin-users";

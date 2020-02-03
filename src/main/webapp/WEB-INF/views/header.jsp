@@ -1,4 +1,3 @@
-
 <header class="page-header">
     <nav class="navbar navbar-expand-lg justify-content-around">
         <a href="/" class="navbar-brand main-logo">

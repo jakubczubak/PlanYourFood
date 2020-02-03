@@ -5,7 +5,7 @@
 
 <head>
     <%@ page language="java" contentType="text/html; charset=UTF-8"
-             pageEncoding="UTF-8"%>
+             pageEncoding="UTF-8" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaplanuj Jedzonko</title>
@@ -20,11 +20,11 @@
 </head>
 
 <body>
-<%@include file="appHeader.jsp"%>
+<%@include file="appHeader.jsp" %>
 
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
-        <%@include file="sideMenu.jsp"%>
+        <%@include file="sideMenu.jsp" %>
 
         <div class="m-4 p-3 width-medium text-color-darker">
             <div class="dashboard-content border-dashed p-3 m-4 view-height">
@@ -35,7 +35,8 @@
                         <div class="row border-bottom border-3">
                             <div class="col"><h3 class="color-header text-uppercase">Nowy przepis</h3></div>
                             <div class="col d-flex justify-content-end mb-2">
-                                <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz</button>
+                                <button type="submit" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Zapisz
+                                </button>
                             </div>
                         </div>
 
@@ -46,14 +47,14 @@
                                 <td class="col-7">
 
                                     <form:input path="name" name="name" class="w-100 p-1" value=""/>
-                                    <form:errors path="name" cssClass="error alert alert-danger" element="div" />
+                                    <form:errors path="name" cssClass="error alert alert-danger" element="div"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
                                 <th scope="row" class="col-2">Opis przepisu</th>
                                 <td class="col-7">
                                     <form:textarea path="description" class="w-100 p-1" rows="5"></form:textarea>
-                                    <form:errors path="description" cssClass="error alert alert-danger" element="div" />
+                                    <form:errors path="description" cssClass="error alert alert-danger" element="div"/>
                                 </td>
                             </tr>
                             <tr class="d-flex">
@@ -74,14 +75,15 @@
                         <div class="row d-flex">
                             <div class="col-5 p-4">
                                 <form:textarea path="methodOfPreparing" class="w-100 p-1" rows="10"></form:textarea>
-                                <form:errors path="methodOfPreparing" cssClass="error alert alert-danger" element="div" />
+                                <form:errors path="methodOfPreparing" cssClass="error alert alert-danger"
+                                             element="div"/>
 
                             </div>
                             <div class="col-2"></div>
 
                             <div class="col-5 p-4">
                                 <form:textarea path="ingredients" class="w-100 p-1" rows="10"></form:textarea>
-                                <form:errors path="ingredients" cssClass="error alert alert-danger" element="div" />
+                                <form:errors path="ingredients" cssClass="error alert alert-danger" element="div"/>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ import pl.jakubczubak.app.repository.RecipeRepository;
 public class RecipeConverter implements Converter<String, Recipe> {
     @Autowired
     RecipeRepository recipeRepository;
+
     @Override
     public Recipe convert(String s) {
         return recipeRepository.findOne(Long.parseLong(s));

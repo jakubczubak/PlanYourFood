@@ -24,7 +24,7 @@ public class Plan {
     @JoinColumn(name = "admin_id")
     private Admin admin;
     @ManyToMany(mappedBy = "plan",
-    cascade = CascadeType.REMOVE)
+            cascade = CascadeType.REMOVE)
     private List<RecipePlan> recipePlans;
 
 

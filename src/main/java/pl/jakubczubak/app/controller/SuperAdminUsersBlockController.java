@@ -17,12 +17,13 @@ public class SuperAdminUsersBlockController {
     AdminRepository adminRepository;
     AdminRepositoryCustomImpl adminRepositoryCustomImpl;
 
-    public SuperAdminUsersBlockController(AdminRepository adminRepository, AdminRepositoryCustomImpl adminRepositoryCustomImpl){
-        this.adminRepository=adminRepository;
-        this.adminRepositoryCustomImpl=adminRepositoryCustomImpl;
+    public SuperAdminUsersBlockController(AdminRepository adminRepository, AdminRepositoryCustomImpl adminRepositoryCustomImpl) {
+        this.adminRepository = adminRepository;
+        this.adminRepositoryCustomImpl = adminRepositoryCustomImpl;
     }
+
     @GetMapping("/app/admin/{id}")
-    public String getSuperAdminUsersPage(@PathVariable Long id){
+    public String getSuperAdminUsersPage(@PathVariable Long id) {
         Admin admin = adminRepositoryCustomImpl.findById(id);
         admin.setEnabled(0);
         adminRepository.save(admin);
@@ -31,14 +32,14 @@ public class SuperAdminUsersBlockController {
     }
 
     @GetMapping("/app/admin/blocked")
-    public String getBlockedUsersList(Model model){
+    public String getBlockedUsersList(Model model) {
         List<Admin> adminList = adminRepository.findAllByEnabled(0);
         model.addAttribute("users", adminList);
         return "blockedusers";
     }
 
     @GetMapping("/app/admin/blocked/{id}")
-    public String unBanUser(@PathVariable Long id){
+    public String unBanUser(@PathVariable Long id) {
         Admin admin = adminRepositoryCustomImpl.findById(id);
         admin.setEnabled(1);
         adminRepository.save(admin);
